@@ -15,10 +15,13 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@emotion/react": "^11.8.2",
+    "@costcolabs/forge-components": "file:../costco-forge/packages/forge-components/costcolabs-forge-components-1.0.0.tgz",
+    "@emotion/react": "^11.9.0",
+    "@emotion/server": "latest",
     "@emotion/styled": "^11.8.1",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@mui/material": "^5.8.3",
     "gatsby": "^4.10.3",
     "gatsby-plugin-emotion": "^7.10.0",
     "gatsby-plugin-google-analytics": "^4.10.0",

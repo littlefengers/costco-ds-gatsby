@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { Container } from '@mui/material'
 
 // styles
 
@@ -23,13 +24,13 @@ export const query = graphql`
 const IndexPage = ({ data }) => {
   return (
     <Layout pageTitle="Content">
-      <ul>
-        {data.allMdx.nodes.map((node) => (
-          <li key={node.slug}>
-            <Link to={node.slug}>{node.frontmatter.title}</Link>
-          </li>
-        ))}
-      </ul>
+        <ul>
+          {data.allMdx.nodes.map((node) => (
+            <li key={node.slug}>
+              <Link to={node.slug}>{node.frontmatter.title}</Link>
+            </li>
+          ))}
+        </ul>
     </Layout>
   )
 }
