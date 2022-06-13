@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from './layout'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-const ContentPage = ({ data }) => {
+const ContentPage = ({ data: { mdx } }) => {
   return (
-    <Layout pageTitle={data.mdx.frontmatter.title}>
+    <Layout pageTitle={mdx.frontmatter.title}>
       <article>
-        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+        <MDXRenderer>{mdx.body}</MDXRenderer>
       </article>
     </Layout>
   )
@@ -16,11 +16,11 @@ const ContentPage = ({ data }) => {
 export const query = graphql`
   query ($id: String) {
     mdx(id: { eq: $id }) {
+      id
+      body
       frontmatter {
         title
-        date(formatString: "MMMM D, YYYY")
       }
-      body
     }
   }
 `

@@ -26,14 +26,15 @@ const MainLeftMenu = styled(List)(({ theme }) => ({
 const LeftMenu = ({ children, data }) => {
   return (
     <LeftMenuContainer>
-      <MainLeftMenu variant="SimpleList">
-        {data.nodes.map((node) => (
-          <ListItem key={node.slug}>
-            <Link to={node.slug}>{node.frontmatter.title}</Link>
-          </ListItem>
-        ))}
-      </MainLeftMenu>
+    <MainLeftMenu variant="SimpleList">
+      {data.nodes.map((node) => (
+        <ListItem key={node.slug}>
+          <Link to={`/`+node.slug}>{node.frontmatter.title}</Link>
+        </ListItem>
+      ))}
+    </MainLeftMenu>
     </LeftMenuContainer>
+
   )
 }
 LeftMenu.propTypes = {}

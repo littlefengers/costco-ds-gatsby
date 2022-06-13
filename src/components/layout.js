@@ -1,11 +1,13 @@
 import * as React from 'react'
-import { graphql, useStaticQuery} from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import { Container, Typography } from '@mui/material'
 import { MuiCostcoTheme } from '@costcolabs/forge-components/dist/global/CostcoTheme'
 import CssBaseline from '@mui/material/CssBaseline'
 import { styled, ThemeProvider } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import LeftMenu from './LeftMenu'
+import Breadcrumbs from './Breadcrumbs'
+
 
 const MainLayout = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -24,7 +26,7 @@ const Layout = ({ pageTitle, children }) => {
           title
           description
         }
-      },
+      }
       allMdx {
         nodes {
           frontmatter {
@@ -45,11 +47,11 @@ const Layout = ({ pageTitle, children }) => {
       <meta name="description" content={data.site.siteMetadata.description} />
       <ThemeProvider theme={MuiCostcoTheme}>
         <MainLayout>
-       
-          <LeftMenu data={data.allMdx}/>
-          <Container maxWidth="md" sx={{ marginTop: '2em' }}>
+          <LeftMenu data={data.allMdx} />
+          <Container maxWidth="sm" sx={{ marginTop: '2em' }}>
+            <Breadcrumbs />
             <header>
-              <Typography variant="h3">{pageTitle}</Typography>
+              <Typography variant="t1">{pageTitle}</Typography>
             </header>
             <main>{children}</main>
           </Container>
